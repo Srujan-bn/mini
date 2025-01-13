@@ -9,6 +9,9 @@ from sklearn.preprocessing import StandardScaler
 from authentication import authenticate_user, register_user
 from complaints import ensure_database, store_complaint, view_complaints
 import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="sklearn.utils.validation")
+
 
 
 
@@ -248,6 +251,7 @@ def main_app():
             past_sales_data = data[(data['date'].dt.month >= 7) & (data['date'].dt.month <= 12)]
             if not past_sales_data.empty:
                 # Group by month and sum the quantity sold
+                past_sales_data = past_sales_data.copy()
                 past_sales_data['month'] = past_sales_data['date'].dt.to_period('M')
                 monthly_sales = past_sales_data.groupby('month')['quantity_sold'].sum()
                 monthly_sales_scaled = monthly_sales / 100
