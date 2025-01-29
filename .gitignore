@@ -4,4 +4,5 @@ __pycache__
 venv
 your-env
 .streamlit
-chatbot.txt
+credentials.json
+complaints.db
