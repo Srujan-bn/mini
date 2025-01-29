@@ -53,7 +53,7 @@ if selected_option == "Chatbot":
         # Send the question to the API
         try:
             url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent"
-            api_key = "AIzaSyDebzfWeZ8lGuKd8NnrjIZGBXGPtLwr0b4"  # Replace with your API key
+            api_key = "${api_key}"  # Replace with your API key
             headers = {"Content-Type": "application/json"}
             payload = {
                 "contents": [{"parts": [{"text": question}]}],
