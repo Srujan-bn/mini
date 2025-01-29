@@ -6,3 +6,5 @@ your-env
 .streamlit
 credentials.json
 complaints.db
+.env
+.streamlit/secrets.toml
